@@ -1,0 +1,24 @@
+{
+  "name": "rsschool-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "sass-watch": "sass --watch ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olezhaaa137/rsschool-landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olezhaaa137/rsschool-landing-page/issues"
+  },
+  "homepage": "https://github.com/olezhaaa137/rsschool-landing-page#readme",
+  "devDependencies": {
+    "sass": "^1.104.1"
+  }
+}
