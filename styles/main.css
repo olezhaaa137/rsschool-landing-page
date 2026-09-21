@@ -26,6 +26,7 @@ body {
   font-family: var(--font-family);
   font-weight: 600;
   background-color: var(--text-inverse);
+  color: var(--text-primary);
 }
 
 .container {
@@ -271,6 +272,15 @@ svg * {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.header__menu-list {
+  display: flex;
+  gap: 40px;
+}
+.header__menu-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 /*# sourceMappingURL=main.css.map */
