@@ -267,5 +267,10 @@ svg * {
     scroll-behavior: auto !important;
   }
 }
+.header__body {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=main.css.map */
