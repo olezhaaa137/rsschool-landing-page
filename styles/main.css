@@ -74,6 +74,19 @@ a:not(.header__logo) {
   padding-inline: var(--container-padding-x);
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
 :root {
   --text-primary: #403f3d;
   --text-inverse: #e1d4c9;
@@ -333,6 +346,10 @@ svg * {
   text-decoration: none;
   color: inherit;
 }
+.header__menupage-link {
+  display: inline-flex;
+  gap: 8px;
+}
 @media (width <= 63.99875rem) {
   .header__menupage-link {
     display: none;
@@ -433,6 +450,43 @@ svg * {
 }
 .burger-button span:nth-child(2) {
   bottom: 18px;
+}
+
+.hero__main {
+  padding: 6.25rem;
+  background: url(../../images/hero/img-hero.jpg);
+  object-fit: cover;
+  border-radius: 40px;
+}
+.hero__body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 33.125rem;
+}
+.hero__button-primary {
+  align-self: flex-start;
+}
+.hero__title {
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 105%;
+  color: var(--text-inverse);
+}
+.hero__title span {
+  font-style: italic;
+  color: var(--text-accent);
+}
+.hero__subtitle {
+  line-height: 150%;
+  color: var(--text-inverse);
+  font-weight: 400;
+}
+.hero__button-primary {
+  background-color: var(--background-page);
+  padding: 1.25rem 4.875rem;
+  border-radius: 6.25rem;
+  border: none;
 }
 
 /*# sourceMappingURL=main.css.map */
