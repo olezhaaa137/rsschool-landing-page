@@ -1,0 +1,46 @@
+@use '../helpers' as *;
+
+.hero {
+  &__main {
+    padding: rem(100);
+    background: url(../../images/hero/img-hero.jpg);
+    object-fit: cover;
+    border-radius: 40px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: rem(530);
+  }
+
+  &__button-primary {
+    align-self: flex-start;
+  }
+
+  &__title {
+    font-size: rem(72);
+    font-weight: 600;
+    line-height: 105%;
+    color: var(--text-inverse);
+
+    span {
+      font-style: italic;
+      color: var(--text-accent);
+    }
+  }
+
+  &__subtitle {
+    line-height: 150%;
+    color: var(--text-inverse);
+    font-weight: 400;
+  }
+
+  &__button-primary {
+    background-color: var(--background-page);
+    padding: rem(20) rem(78);
+    border-radius: rem(100);
+    border: none;
+  }
+}

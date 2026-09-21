@@ -1,0 +1,109 @@
+@use '../helpers' as *;
+
+.header {
+  margin-bottom: 20px;
+  &__body {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    border: none
+  }
+
+  &__menu {
+
+    @include tablet {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      gap: 40px;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &__menupage-link {
+    display: inline-flex;
+    gap: 8px;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    input {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      transition: 0.3s;
+
+      &:checked + label:after {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &__darkmode-toggle {
+    min-height: rem(44);
+    width: rem(80);
+    position: relative;
+    display: block;
+    border-radius: rem(100);
+    border: 1px solid var(--border-primary);
+
+    &::after {
+      content: '';
+      width: rem(36);
+      height: rem(36);
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      background: var(--text-accent);
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+  }
+
+  &__menu-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.sun {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  path {
+    fill: var(--text-inverse);
+  }
+}
+
+.moon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+  path {
+    fill: var(--text-primary);
+  }
+}
