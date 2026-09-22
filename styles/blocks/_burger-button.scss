@@ -1,0 +1,31 @@
+@use '../helpers' as *;
+
+.burger-button {
+  display: none;
+  position: relative;
+  height: rem(44);
+  width: rem(44);
+  background-color: transparent;
+  border: 1px solid var(--background-container);
+  border-radius: rem(100);
+
+  @include tablet {
+    display: block;
+  }
+
+  span {
+    position: absolute;
+    left: 13px;
+    width: rem(18);
+    height: rem(2);
+    background-color: var(--text-primary);
+
+    &:nth-child(1) {
+      top: 18px;
+    }
+    &:nth-child(2) {
+      bottom: 18px;
+    }
+  }
+
+}
