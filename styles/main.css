@@ -465,7 +465,36 @@ svg * {
   max-width: 33.125rem;
 }
 .hero__button-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
   align-self: flex-start;
+  gap: 0.5rem;
+}
+.hero__button-primary span {
+  transition: 0.2s ease;
+}
+@media (any-hover: hover) {
+  .hero__button-primary:hover span {
+    transform: translateX(-0.875rem);
+  }
+  .hero__button-primary:hover svg {
+    opacity: 1;
+  }
+}
+@media (any-hover: none) {
+  .hero__button-primary:active span {
+    transform: translateX(-0.875rem);
+  }
+  .hero__button-primary:active svg {
+    opacity: 1;
+  }
+}
+.hero__button-primary svg {
+  position: absolute;
+  left: 7.25rem;
+  opacity: 0;
+  transition: 0.2s ease;
 }
 .hero__title {
   font-size: 4.5rem;
