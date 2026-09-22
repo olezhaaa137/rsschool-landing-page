@@ -3,9 +3,16 @@
 .hero {
   &__main {
     padding: rem(100);
-    background: url(../../images/hero/img-hero.jpg);
+    background: url(../images/hero/img-hero.jpg);
     object-fit: cover;
     border-radius: 40px;
+
+    @include mobile {
+      padding-left: rem(60);
+    }
+    @include mobile-s {
+      padding: rem(60) rem(16);
+    }
   }
 
   &__body {
@@ -27,20 +34,19 @@
     }
 
     @include hover {
-
       span {
         transform: translateX(rem(-14));
       }
-      
+
       svg {
-        opacity: 1;
+        transform: scale(1);
       }
     }
 
-    svg{
+    svg {
       position: absolute;
       left: rem(116);
-      opacity: 0;
+      transform: scale(0);
       transition: 0.2s ease;
     }
   }
@@ -50,6 +56,10 @@
     font-weight: 600;
     line-height: 105%;
     color: var(--text-inverse);
+
+    @include mobile-s {
+      font-size: rem(42);
+    }
 
     span {
       font-style: italic;
@@ -65,6 +75,7 @@
 
   &__button-primary {
     background-color: var(--background-page);
+    color: var(--text-primary);
     padding: rem(20) rem(78);
     border-radius: rem(100);
     border: none;
