@@ -10,11 +10,10 @@
   }
 
   &__logo {
-    border: none
+    border: none;
   }
 
   &__menu {
-
     @include tablet {
       display: none;
     }
@@ -50,18 +49,40 @@
       transition: 0.3s;
 
       &:checked + label:after {
-        transform: translateX(100%);
+        transform: translateX(121%);
+      }
+      &:checked + label:before {
+        transform: translateX(-121%);
+        background: var(--dark-bg-container);
       }
     }
   }
 
   &__darkmode-toggle {
     min-height: rem(44);
-    width: rem(80);
+    width: rem(88);
     position: relative;
     display: block;
     border-radius: rem(100);
     border: 1px solid var(--border-primary);
+
+    @include hover {
+      &::before {
+        content: '';
+        width: rem(36);
+        height: rem(36);
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        background: var(--dark-border-primary);
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+
+      .moon path {
+        fill: var(--text-inverse);;
+      }
+    }
 
     &::after {
       content: '';

@@ -367,15 +367,51 @@ svg * {
   transition: 0.3s;
 }
 .header__buttons input:checked + label:after {
-  transform: translateX(100%);
+  transform: translateX(121%);
+}
+.header__buttons input:checked + label:before {
+  transform: translateX(-121%);
+  background: var(--dark-bg-container);
 }
 .header__darkmode-toggle {
   min-height: 2.75rem;
-  width: 5rem;
+  width: 5.5rem;
   position: relative;
   display: block;
   border-radius: 6.25rem;
   border: 1px solid var(--border-primary);
+}
+@media (any-hover: hover) {
+  .header__darkmode-toggle:hover::before {
+    content: "";
+    width: 2.25rem;
+    height: 2.25rem;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: var(--dark-border-primary);
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .header__darkmode-toggle:hover .moon path {
+    fill: var(--text-inverse);
+  }
+}
+@media (any-hover: none) {
+  .header__darkmode-toggle:active::before {
+    content: "";
+    width: 2.25rem;
+    height: 2.25rem;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: var(--dark-border-primary);
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .header__darkmode-toggle:active .moon path {
+    fill: var(--text-inverse);
+  }
 }
 .header__darkmode-toggle::after {
   content: "";
@@ -454,9 +490,19 @@ svg * {
 
 .hero__main {
   padding: 6.25rem;
-  background: url(../../images/hero/img-hero.jpg);
+  background: url(../images/hero/img-hero.jpg);
   object-fit: cover;
   border-radius: 40px;
+}
+@media (width <= 48.06125rem) {
+  .hero__main {
+    padding-left: 3.75rem;
+  }
+}
+@media (width <= 23.81125rem) {
+  .hero__main {
+    padding: 3.75rem 1rem;
+  }
 }
 .hero__body {
   display: flex;
@@ -479,7 +525,7 @@ svg * {
     transform: translateX(-0.875rem);
   }
   .hero__button-primary:hover svg {
-    opacity: 1;
+    transform: scale(1);
   }
 }
 @media (any-hover: none) {
@@ -487,13 +533,13 @@ svg * {
     transform: translateX(-0.875rem);
   }
   .hero__button-primary:active svg {
-    opacity: 1;
+    transform: scale(1);
   }
 }
 .hero__button-primary svg {
   position: absolute;
   left: 7.25rem;
-  opacity: 0;
+  transform: scale(0);
   transition: 0.2s ease;
 }
 .hero__title {
@@ -501,6 +547,11 @@ svg * {
   font-weight: 600;
   line-height: 105%;
   color: var(--text-inverse);
+}
+@media (width <= 23.81125rem) {
+  .hero__title {
+    font-size: 2.625rem;
+  }
 }
 .hero__title span {
   font-style: italic;
@@ -513,6 +564,7 @@ svg * {
 }
 .hero__button-primary {
   background-color: var(--background-page);
+  color: var(--text-primary);
   padding: 1.25rem 4.875rem;
   border-radius: 6.25rem;
   border: none;
