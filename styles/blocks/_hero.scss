@@ -1,11 +1,25 @@
 @use '../helpers' as *;
 
 .hero {
+
+  margin-bottom: rem(100);
+
   &__main {
-    padding: rem(100);
-    background: url(../images/hero/img-hero.jpg);
     object-fit: cover;
-    border-radius: 40px;
+  }
+
+  &__body {
+    background: url(../images/hero/img-hero.jpg);
+    border-radius: rem(40);
+
+  }
+
+  &__content {
+    padding: rem(100);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: rem(530);
 
     @include mobile {
       padding-left: rem(60);
@@ -14,13 +28,7 @@
       padding: rem(60) rem(16);
     }
   }
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    max-width: rem(530);
-  }
+  
 
   &__button-primary {
     position: relative;
