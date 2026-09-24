@@ -1,0 +1,109 @@
+@use '../helpers' as *;
+
+.slider {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(40);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(40);
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    width: 100%;
+  }
+
+  &-btn {
+    width: rem(60);
+    height: rem(60);
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--border-inverse);
+    border-radius: 50%;
+
+    @include mobile {
+      display: none;
+    }
+
+    path {
+      stroke: var(--border-inverse);
+    }
+  }
+
+  &__item {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    align-items: center;
+    text-align: center;
+
+    flex-shrink: 0;
+    &-text {
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    &-price {
+      font-weight: 600;
+      line-height: 125%;
+      font-size: rem(24);
+    }
+
+    &-image {
+      max-width: rem(480);
+      width: 100%;
+      height: auto;
+    }
+
+    div,
+    p {
+      max-width: rem(480);
+      width: 100%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    @include mobile-s {
+      font-size: rem(32);
+    }
+
+    span {
+      color: var(--text-accent);
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    gap: rem(12);
+
+    &-elem {
+      width: rem(40);
+      height: rem(4);
+      border-radius: remm(100);
+      background-color: var(--border-primary);
+      cursor: pointer;
+
+      @include hover {
+        background-color: var(--background-container);
+      }
+    }
+
+    &-elem.active {
+      background-color: var(--background-container);
+    }
+  }
+}
