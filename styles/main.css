@@ -30,6 +30,10 @@ body.dark-mode {
   --border-inverse: #c1b6ad;
 }
 
+html.is-lock {
+  overflow: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -353,18 +357,39 @@ svg * {
 .header__logo {
   border: none;
 }
+.header__menu {
+  background-color: var(--background-page);
+  transition: 0.2s ease;
+}
 @media (width <= 63.99875rem) {
   .header__menu {
-    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 5rem;
+    width: 100%;
+    right: -100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 .header__menu-list {
   display: flex;
   gap: 40px;
 }
+@media (width <= 63.99875rem) {
+  .header__menu-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .header__menu-link {
   text-decoration: none;
   color: inherit;
+}
+.header__menu.is-active {
+  right: 0;
 }
 .header__menupage-link {
   display: inline-flex;
@@ -500,12 +525,23 @@ svg * {
   width: 1.125rem;
   height: 0.125rem;
   background-color: var(--text-primary);
+  transition: 0.2s ease;
 }
 .burger-button span:nth-child(1) {
   top: 18px;
 }
 .burger-button span:nth-child(2) {
   bottom: 18px;
+}
+.burger-button.is-active span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.burger-button.is-active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.burger-button.is-active span:nth-child(2) {
+  transform: rotate(-45deg);
 }
 
 .hero {
@@ -617,6 +653,7 @@ svg * {
 .slider__track {
   display: flex;
   width: 100%;
+  transition: 0.2s ease;
 }
 .slider-btn {
   width: 3.75rem;
@@ -629,6 +666,22 @@ svg * {
 @media (width <= 48.06125rem) {
   .slider-btn {
     display: none;
+  }
+}
+@media (any-hover: hover) {
+  .slider-btn:hover {
+    background-color: var(--background-container);
+  }
+  .slider-btn:hover path {
+    stroke: var(--text-inverse);
+  }
+}
+@media (any-hover: none) {
+  .slider-btn:active {
+    background-color: var(--background-container);
+  }
+  .slider-btn:active path {
+    stroke: var(--text-inverse);
   }
 }
 .slider-btn path {

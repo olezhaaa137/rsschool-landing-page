@@ -13,3 +13,8 @@
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
 }
+
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}

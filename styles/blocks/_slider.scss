@@ -1,7 +1,6 @@
 @use '../helpers' as *;
 
 .slider {
-
   margin-bottom: rem(100);
 
   &__body {
@@ -27,6 +26,7 @@
   &__track {
     display: flex;
     width: 100%;
+    transition: 0.2s ease;
   }
 
   &-btn {
@@ -39,6 +39,13 @@
 
     @include mobile {
       display: none;
+    }
+
+    @include hover {
+      background-color: var(--background-container);
+      path {
+        stroke: var(--text-inverse);
+      }
     }
 
     path {
