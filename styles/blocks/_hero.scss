@@ -65,7 +65,7 @@
     line-height: 105%;
     color: var(--text-inverse);
 
-    @include mobile-s {
+    @include mobile {
       font-size: rem(42);
     }
 

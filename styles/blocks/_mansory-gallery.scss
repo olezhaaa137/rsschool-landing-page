@@ -1,0 +1,77 @@
+@use '../helpers' as *;
+
+.mansory-gallery {
+
+  margin-bottom: rem(100);
+  
+  &__title {
+    margin-bottom: rem(40);
+
+    @include mobile-s {
+      font-size: rem(32);
+    }
+
+    span {
+      color: var(--text-accent);
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: rem(40);
+    grid-template-columns: 1fr 1fr;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+    display: grid;
+    gap: rem(40);
+
+    @include tablet {
+      display: contents;
+    }
+
+    &--first {
+      @include tablet {
+        .mansory-gallery__item:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+
+    &--second {
+      @include tablet {
+        .mansory-gallery__item:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__item {
+    border-radius: rem(20);
+    width: 100%;
+    overflow: hidden;
+
+    @include hover {
+      img {
+        transform: scale(1);
+      }
+    }
+
+    @include tablet {
+      height: rem(590);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.1);
+      transition: 0.2s ease;
+    }
+  }
+}

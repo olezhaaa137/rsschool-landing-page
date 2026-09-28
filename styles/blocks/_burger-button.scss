@@ -19,7 +19,7 @@
     width: rem(18);
     height: rem(2);
     background-color: var(--text-primary);
-
+    transition: 0.2s ease;
     &:nth-child(1) {
       top: 18px;
     }
@@ -28,4 +28,17 @@
     }
   }
 
+  &.is-active {
+    span {
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
 }

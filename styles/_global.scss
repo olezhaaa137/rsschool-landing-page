@@ -10,6 +10,12 @@ body.dark-mode {
 	--border-inverse: #c1b6ad;
 }
 
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;

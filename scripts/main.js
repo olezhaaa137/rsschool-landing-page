@@ -14,3 +14,50 @@ if (localStorage.getItem('theme') === 'dark-mode') {
   checkbox.checked = true;
 }
   
+
+const burgerButton = document.querySelector('.burger-button');
+const headerMenu = document.querySelector('.header__menu');
+
+function onButtonClick (event) {
+  burgerButton.classList.toggle('is-active');
+  headerMenu.classList.toggle('is-active');
+  document.documentElement.classList.toggle('is-lock');
+}
+
+burgerButton.addEventListener('click', onButtonClick);
+
+const slides = Array.from(document.querySelectorAll('.slider__item'));
+const sliderTrack = document.querySelector('.slider__track');
+const nextButton = document.querySelector('.next-btn');
+const prevButton = document.querySelector('.previous-btn');
+const indicators = Array.from(document.querySelectorAll('.slider__indicators-elem'));
+
+let currentIndex = 0;
+
+function updateSlider() {
+  const currentWidth = slides[0].getBoundingClientRect().width;
+
+  sliderTrack.style.transform = `translateX(-${currentIndex * currentWidth}px)`;
+
+  indicators.forEach(indicator => indicator.classList.remove('active'));
+  indicators[currentIndex].classList.add('active')
+}
+
+window.addEventListener('resize', updateSlider);
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length; // После последнего перейдет на 0
+  updateSlider();
+});
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length; // После 0 перейдет на последний
+  updateSlider();
+});
+
+indicators.forEach((indicator, index) => {
+  indicator.addEventListener('click', () => {
+    currentIndex = index;
+    updateSlider();
+  });
+});

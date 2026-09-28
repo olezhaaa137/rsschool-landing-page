@@ -1,6 +1,8 @@
 @use '../helpers' as *;
 
 .slider {
+  margin-bottom: rem(100);
+
   &__body {
     display: flex;
     flex-direction: column;
@@ -13,6 +15,8 @@
     justify-content: space-between;
     align-items: center;
     gap: rem(40);
+    width: 100%;
+    // max-width: rem(680);
   }
 
   &__wrapper {
@@ -22,6 +26,7 @@
   &__track {
     display: flex;
     width: 100%;
+    transition: 0.2s ease;
   }
 
   &-btn {
@@ -36,13 +41,20 @@
       display: none;
     }
 
+    @include hover {
+      background-color: var(--background-container);
+      path {
+        stroke: var(--text-inverse);
+      }
+    }
+
     path {
       stroke: var(--border-inverse);
     }
   }
 
   &__item {
-    min-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: rem(20);
