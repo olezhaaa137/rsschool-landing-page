@@ -30,6 +30,9 @@ body.dark-mode {
   --border-inverse: #c1b6ad;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 html.is-lock {
   overflow: hidden;
 }

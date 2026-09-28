@@ -61,3 +61,57 @@ indicators.forEach((indicator, index) => {
     updateSlider();
   });
 });
+
+// menu links click -> auto closing burger-menu
+
+const menuLinks = Array.from(document.querySelectorAll('.header__menu-item'));
+
+function closeMenuOnMenuLinkClick() {
+  burgerButton.classList.remove('is-active');
+  headerMenu.classList.remove('is-active');
+  document.documentElement.classList.remove('is-lock');
+}
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', closeMenuOnMenuLinkClick);
+});
+
+// создание карточек из джэйсона
+
+let productsData = [];
+
+async function loadProducts() {
+  try {
+    const response = await fetch('../products.json');
+    productsData = await response.json();
+    renderCards(productsData); // Запускаем отрисовку карточек
+  } catch (error) {
+    console.error("Ошибка загрузки данных:", error);
+  }
+}
+
+loadProducts();
+
+function renderCards(products) {
+  const grid = document.querySelector('.menu__body');
+  grid.innerHTML = '';
+
+  products.forEach((product, index) => {
+    const card = document.createElement('div');
+    card.classList.add('menu__card', 'card');
+    card.setAttribute('product-id', index);
+    card.setAttribute('card-category', card.category);
+
+    card.innerHTML = `<div class="card__image"><img src="" alt=""></div>
+            <div class="card__content">
+              <h3 class="card__title">${card.name}</h3>
+              <p class="card__text">${card.description}</p>
+              <p class="card__price">$${card.price}</p>
+            </div>`;
+
+    card.addEventListener('click', openModal(index));
+    grid.appendChild(card);
+  });
+}
+
+renderCards(productsData);
