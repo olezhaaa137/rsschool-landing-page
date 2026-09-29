@@ -21,6 +21,16 @@ function onButtonClick(event) {
   burgerButton.classList.toggle('is-active');
   headerMenu.classList.toggle('is-active');
   document.documentElement.classList.toggle('is-lock');
+
+  window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    if (headerMenu.classList.contains('is-active')) {
+      burgerButton.classList.remove('is-active');
+      headerMenu.classList.remove('is-active');
+      document.documentElement.classList.remove('is-lock');
+    }
+  }
+});
 }
 
 burgerButton.addEventListener('click', onButtonClick);
@@ -81,12 +91,4 @@ menuLinks.forEach((link) => {
 
 // closing on escape button
 
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    if (headerMenu.classList.contains('is-active')) {
-      burgerButton.classList.remove('is-active');
-      headerMenu.classList.remove('is-active');
-      document.documentElement.classList.remove('is-lock');
-    }
-  }
-});
+

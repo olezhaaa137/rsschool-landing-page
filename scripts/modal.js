@@ -61,6 +61,13 @@ function openModal(event) {
 
   document.documentElement.classList.add('is-lock');
   cardModal.classList.remove('hidden');
+
+  window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    document.documentElement.classList.remove('is-lock');
+    cardModal.classList.add('hidden');
+  }
+});
 }
 
 // Слушаем клик на всем модальном окне
@@ -75,3 +82,5 @@ cardModal.addEventListener('click', function(event) {
 
 // closeButton.addEventListener('click', closeModal);
 cardBody.addEventListener('click', openModal);
+
+
