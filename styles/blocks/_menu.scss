@@ -1,0 +1,13 @@
+@use '../helpers' as *;
+
+.menu {
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(40);
+  }
+
+  &__categorie-btn * {
+    pointer-events: none;
+  }
+}
