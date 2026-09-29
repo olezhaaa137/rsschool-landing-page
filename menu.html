@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/main.css" />
     <script src="./scripts/main.js" type="module" defer></script>
     <script src="./scripts/menu.js" type="module" defer></script>
+    <script src="./scripts/modal.js" type="module" defer></script>
   </head>
   <body>
     <header class="header">
@@ -114,32 +115,57 @@
           Behind each of our cups hides an <span>amazing surprise</span>
         </h1>
         <div class="menu__categories-buttons">
-          <button class="menu__categorie-btn coffee-btn">
+          <button
+            class="menu__categorie-btn active coffee-btn"
+            data-category="coffee"
+          >
             <span><img src="./icons/menu/coffee.png" alt="coffe" /></span>Coffee
           </button>
-          <button class="menu__categorie-btn tea-btn">
+          <button class="menu__categorie-btn tea-btn" data-category="tea">
             <span><img src="./icons/menu/tea.png" alt="tea" /></span>Tea
           </button>
-          <button class="menu__categorie-btn dessert-btn">
+          <button
+            class="menu__categorie-btn dessert-btn"
+            data-category="dessert"
+          >
             <span><img src="./icons/menu/dessert.png" alt="dessert" /></span
             >Dessert
           </button>
         </div>
         <div class="menu__body">
-          <div class="menu__card card">
+          <!-- <div class="menu__card card">
             <div class="card__image"><img src="" alt=""></div>
             <div class="card__content">
               <h3 class="card__title"></h3>
               <p class="card__text"></p>
               <p class="card__price"></p>
             </div>
-          </div>
+          </div> -->
         </div>
-        <div class="card-modal" id="card-modal">
+        <div class="card-modal hidden" id="card-modal">
           <div class="card-modal__content">
-            <div class="card-modal__img"><img src="" alt=""></div>
+            <div class="card-modal__img"><img src="" alt="" /></div>
             <div class="card-modal__body">
-              <button class="card-modal__close">x</button>
+              <h3 class="card-modal__header"></h3>
+              <p class="card-modal__text"></p>
+              <div class="card-modal__size-buttons">
+                <button class="size-button"></button>
+                <button class="size-button"></button>
+                <button class="size-button"></button>
+              </div>
+              <div class="card-modal__additives">
+                <button class="additive-button"></button>
+                <button class="additive-button"></button>
+                <button class="additive-button"></button>
+              </div>
+              <div class="card-modal__total-sum">Total: <span></span></div>
+              <hr />
+              <p class="card-modal__warning">
+                The cost is not final. Download our mobile app to see the final
+                price and place your order. Earn loyalty points and enjoy your
+                favorite coffee with up to 20% discount.
+              </p>
+              <button class="card-modal__close">Close</button>
             </div>
           </div>
         </div>

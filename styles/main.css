@@ -978,4 +978,38 @@ svg * {
   gap: 1rem;
 }
 
+.card-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background-color: var(--background-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.card-modal__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 50rem;
+  padding: 1rem;
+  background: var(--background-page);
+}
+
+.card {
+  cursor: pointer;
+}
+
+.menu__body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+.menu__categorie-btn * {
+  pointer-events: none;
+}
+
 /*# sourceMappingURL=main.css.map */
