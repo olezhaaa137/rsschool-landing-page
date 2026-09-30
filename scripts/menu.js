@@ -6,7 +6,7 @@ let activeCategory = 'coffee';
 
 async function loadProducts() {
   try {
-    const response = await fetch('../products.json');
+    const response = await fetch('data/products.json');
     productsData = await response.json();
     renderCardsByActiveCategory(productsData); // Запускаем отрисовку карточек
   } catch (error) {
