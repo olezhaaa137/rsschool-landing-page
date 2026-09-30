@@ -40,16 +40,16 @@ function openModal(event) {
               <h3 class="card-modal__header">${product.name}</h3>
               <p class="card-modal__text">${product.description}</p>
               <div class="card-modal__size-buttons">
-                <button class="size-button" data-addPrice="${product.sizes.s["add-price"]}">${product.sizes.s["size"]}</button>
-                <button class="size-button" data-addPrice="${product.sizes.m["add-price"]}">${product.sizes.m["size"]}</button>
-                <button class="size-button" data-addPrice="${product.sizes.l["add-price"]}">${product.sizes.l["size"]}</button>
+                <input type="radio" name="size" checked class="size-button" data-addPrice="${product.sizes.s['add-price']}">${product.sizes.s['size']}</input>
+                <input class="size-button" type="radio" name="size" data-addPrice="${product.sizes.m['add-price']}">${product.sizes.m['size']}</input>
+                <input class="size-button" type="radio" name="size" data-addPrice="${product.sizes.l['add-price']}">${product.sizes.l['size']}</input>
               </div>
               <div class="card-modal__additives">
-                <button class="additive-button" data-addprice="${product.additives[0]["add-price"]}">${product.additives[0]["name"]}</button>
-                <button class="additive-button" data-addprice="${product.additives[1]["add-price"]}">${product.additives[1]["name"]}</button>
-                <button class="additive-button" data-addprice="${product.additives[2]["add-price"]}">${product.additives[2]["name"]}</button>
+                <input type="checkbox" class="additive-button" data-addprice="${product.additives[0]['add-price']}">${product.additives[0]['name']}</штз>
+                <input type="checkbox" class="additive-button" data-addprice="${product.additives[1]['add-price']}">${product.additives[1]['name']}</input>
+                <input type="checkbox" class="additive-button" data-addprice="${product.additives[2]['add-price']}">${product.additives[2]['name']}</input>
               </div>
-              <div class="card-modal__total-sum">Total: <span>$${product.price}</span></div>
+              <div class="card-modal__total-sum">Total: $<span>${product.price}</span></div>
               <hr />
               <p class="card-modal__warning">
                 The cost is not final. Download our mobile app to see the final
@@ -63,15 +63,15 @@ function openModal(event) {
   cardModal.classList.remove('hidden');
 
   window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    document.documentElement.classList.remove('is-lock');
-    cardModal.classList.add('hidden');
-  }
-});
+    if (event.key === 'Escape') {
+      document.documentElement.classList.remove('is-lock');
+      cardModal.classList.add('hidden');
+    }
+  });
 }
 
 // Слушаем клик на всем модальном окне
-cardModal.addEventListener('click', function(event) {
+cardModal.addEventListener('click', function (event) {
   // Если кликнули на кнопку закрытия (или её содержимое)
   if (event.target.closest('.card-modal__close')) {
     document.documentElement.classList.remove('is-lock');
@@ -79,8 +79,48 @@ cardModal.addEventListener('click', function(event) {
   }
 });
 
-
 // closeButton.addEventListener('click', closeModal);
 cardBody.addEventListener('click', openModal);
 
+function calculateSumOnChange() {
+  const product = productsData.find(
+    (product) =>
+      product.name === cardModal.querySelector('.card-modal__header').textContent,
+  );
+  const currentPriceElem = cardModal.querySelector('.card-modal__total-sum span');
+  let currentPrice = Number.parseFloat(
+    cardModal.querySelector('.card-modal__total-sum span').textContent,
+  );
+  if (!currentPrice) return;
 
+  const selectedSize = cardModal.querySelector('.size-button:checked');
+  const selectedSizeAddPrice = Number.parseFloat(selectedSize.dataset.addprice);
+
+  let newPrice = 0;
+
+  newPrice = +product.price + selectedSizeAddPrice;
+
+  Array.from(cardModal.querySelectorAll('.additive-button:checked')).forEach(
+    (button) => (newPrice += Number.parseFloat(button.dataset.addprice)),
+  );
+
+  currentPriceElem.textContent = newPrice.toFixed(2);
+}
+
+const radioSizes = Array.from(document.querySelectorAll('.size-button'));
+const additivesChckbxs = Array.from(
+  document.querySelectorAll('.additive-button'),
+);
+console.log(radioSizes);
+console.log(additivesChckbxs);
+
+//radioSizes.forEach(radio => radio.addEventListener('change', calculateSumOnChange));
+//additivesChckbxs.forEach(checkbox => checkbox.addEventListener('change', calculateSumOnChange));
+cardModal.addEventListener('change', (event) => {
+  if (
+    event.target.classList.contains('size-button') ||
+    event.target.classList.contains('additive-button')
+  ) {
+    calculateSumOnChange();
+  }
+});
