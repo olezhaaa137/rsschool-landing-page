@@ -10,6 +10,13 @@ body.dark-mode {
 	--border-inverse: #c1b6ad;
 }
 
+html {
+  scroll-behavior: smooth;
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -40,4 +47,20 @@ a:not(.header__logo) {
   @include hover {
     border-bottom: 2px solid;
   }
+}
+
+h2, .h2 {
+  font-size: rem(60);
+  line-height: 125%;
+  font-weight: 600;
+
+  span {
+    font-style: italic;
+  }
+}
+
+h3, .h3 {
+  font-weight: 600;
+  font-size: rem(24);
+  line-height: 125%;
 }

@@ -1,0 +1,76 @@
+@use '../helpers' as *;
+
+.footer {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(100);
+    padding: rem(100);
+    border-radius: 40px;
+    background: var(--background-container);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: rem(40);
+      padding: rem(100) rem(60);
+    }
+
+    @include mobile {
+      padding: rem(60) rem(16);
+
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+
+    &-title {
+      color: var(--text-inverse);
+      span {
+        color: var(--text-accent);
+      }
+
+      @include mobile {
+        font-size: rem(32);
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      gap: rem(12);
+    }
+
+    &-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: rem(60);
+      height: rem(60);
+      border-radius: 50%;
+      padding: rem(18);
+      color: var(--border-primary);
+      background-color: transparent;
+      border: rem(1) solid var(--border-primary);
+
+      @include hover {
+        background-color: var(--background-page);
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  &__contacts {
+    color: var(--text-inverse);
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+
+    &-menu {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+    }
+  }
+}
