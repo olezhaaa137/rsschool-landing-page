@@ -9,7 +9,7 @@ console.log(cardBody);
 let productsData = [];
 async function loadProducts() {
   try {
-    const response = await fetch('../products.json');
+    const response = await fetch('data/products.json');
     productsData = await response.json();
   } catch (error) {
     console.error('Ошибка загрузки данных:', error);
