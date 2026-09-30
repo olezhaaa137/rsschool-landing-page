@@ -37,21 +37,47 @@ function openModal(event) {
   console.log(product);
   modalContent.innerHTML = `<div class="card-modal__img"><img src="${imageSource}" alt="image" /></div>
             <div class="card-modal__body">
-              <h3 class="card-modal__header">${product.name}</h3>
-              <p class="card-modal__text">${product.description}</p>
+              <div class="card-modal__titles">
+                <h3 class="card-modal__header">${product.name}</h3>
+                <p class="card-modal__text">${product.description}</p>
+              </div>
               <div class="card-modal__size-buttons">
-                <input type="radio" name="size" checked class="size-button" data-addPrice="${product.sizes.s['add-price']}">${product.sizes.s['size']}</input>
-                <input class="size-button" type="radio" name="size" data-addPrice="${product.sizes.m['add-price']}">${product.sizes.m['size']}</input>
-                <input class="size-button" type="radio" name="size" data-addPrice="${product.sizes.l['add-price']}">${product.sizes.l['size']}</input>
+                <p class="card-modal__buttons-title">Size</p>
+                <div class="card-modal__buttons-body">
+                  <input id="s-size-btn" type="radio" name="size" checked class="size-button card-modal__add-price-button" data-addPrice="${product.sizes.s['add-price']}"></input>
+                  <label class="card-modal__add-price-button" for="s-size-btn"><span>S</span> ${product.sizes.s['size']}</label>
+                  <input id="m-size-btn" class="size-button card-modal__add-price-button" type="radio" name="size" data-addPrice="${product.sizes.m['add-price']}"></input>
+                  <label class="card-modal__add-price-button" for="m-size-btn"><span>M</span> ${product.sizes.m['size']}</label>
+                  <input id="l-size-btn" class="size-button card-modal__add-price-button" type="radio" name="size" data-addPrice="${product.sizes.l['add-price']}"></input>
+                  <label class="card-modal__add-price-button" for="l-size-btn"><span>L</span> ${product.sizes.l['size']}</label>
+                </div>
               </div>
               <div class="card-modal__additives">
-                <input type="checkbox" class="additive-button" data-addprice="${product.additives[0]['add-price']}">${product.additives[0]['name']}</штз>
-                <input type="checkbox" class="additive-button" data-addprice="${product.additives[1]['add-price']}">${product.additives[1]['name']}</input>
-                <input type="checkbox" class="additive-button" data-addprice="${product.additives[2]['add-price']}">${product.additives[2]['name']}</input>
+                <p class="card-modal__buttons-title">Additives</p>
+                <div class="card-modal__buttons-body">
+                  <input id="first-checkbox" type="checkbox" class="additive-button card-modal__add-price-button" data-addprice="${product.additives[0]['add-price']}"></input>
+                  <label class="card-modal__add-price-button" for="first-checkbox"><span>1</span> ${product.additives[0]['name']}</label>
+                  <input id="second-checkbox" type="checkbox" class="additive-button card-modal__add-price-button" data-addprice="${product.additives[1]['add-price']}"></input>
+                  <label class="card-modal__add-price-button" for="second-checkbox"><span>2</span> ${product.additives[1]['name']}</label>
+                  <input id="third-checkbox" type="checkbox" class="additive-button card-modal__add-price-button" data-addprice="${product.additives[2]['add-price']}"></input>
+                  <label for="third-checkbox" class="card-modal__add-price-button"><span>3</span> ${product.additives[2]['name']}</label>
+                </div>
               </div>
-              <div class="card-modal__total-sum">Total: $<span>${product.price}</span></div>
-              <hr />
+              <div class="card-modal__total-sum">Total: <div>$<span>${product.price}</span></div></div>
+              
               <p class="card-modal__warning">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_147811_7961)">
+    <path d="M8 7.66663V11" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M8 5.00667L8.00667 4.99926" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M7.99967 14.6667C11.6816 14.6667 14.6663 11.6819 14.6663 8.00004C14.6663 4.31814 11.6816 1.33337 7.99967 1.33337C4.31778 1.33337 1.33301 4.31814 1.33301 8.00004C1.33301 11.6819 4.31778 14.6667 7.99967 14.6667Z" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <defs>
+    <clipPath id="clip0_147811_7961">
+      <rect width="16" height="16" fill="white" />
+    </clipPath>
+  </defs>
+</svg>
                 The cost is not final. Download our mobile app to see the final
                 price and place your order. Earn loyalty points and enjoy your
                 favorite coffee with up to 20% discount.

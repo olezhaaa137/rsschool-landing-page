@@ -986,6 +986,89 @@ svg * {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--text-primary);
+}
+.card-modal__total-sum {
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 100%;
+}
+.card-modal__close {
+  border: 0.0625rem solid var(--background-container);
+  border-radius: 6.25rem;
+  padding: 0.625rem;
+  text-align: center;
+  background-color: transparent;
+  width: 100%;
+}
+.card-modal__warning {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.625rem;
+}
+.card-modal__add-price-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0.0625rem solid var(--border-primary);
+  border-radius: 6.25rem;
+  padding: 0.5rem;
+  padding-right: 1rem;
+}
+@media (any-hover: hover) {
+  .card-modal__add-price-button:hover {
+    background: var(--background-container);
+    color: var(--text-inverse);
+  }
+  .card-modal__add-price-button:hover span {
+    background: var(--background-page);
+    color: var(--text-primary);
+  }
+}
+@media (any-hover: none) {
+  .card-modal__add-price-button:active {
+    background: var(--background-container);
+    color: var(--text-inverse);
+  }
+  .card-modal__add-price-button:active span {
+    background: var(--background-page);
+    color: var(--text-primary);
+  }
+}
+.card-modal__add-price-button span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  background: var(--border-primary);
+}
+.card-modal__header {
+  margin-bottom: 0.75rem;
+}
+.card-modal__img {
+  max-width: 21.25rem;
+  height: auto;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 2.5rem;
+}
+@media (width <= 48.06125rem) {
+  .card-modal__img {
+    display: none;
+  }
+}
+.card-modal__text {
+  font-weight: normal;
+}
+.card-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 .card-modal.hidden {
   opacity: 0;
@@ -994,13 +1077,61 @@ svg * {
 .card-modal__content {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 2.5rem;
   max-width: 50rem;
+  gap: 1.25rem;
   padding: 1rem;
   background: var(--background-page);
+  border-radius: 2.5rem;
+  width: 100%;
+}
+@media (width <= 48.06125rem) {
+  .card-modal__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+.card-modal__buttons-title {
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+.card-modal__buttons-body {
+  display: flex;
+  gap: 0.5rem;
+}
+@media (width <= 63.99875rem) {
+  .card-modal__buttons-body {
+    flex-wrap: wrap;
+  }
 }
 
 .card {
   cursor: pointer;
+}
+
+.size-button {
+  display: none;
+}
+.size-button:checked + label {
+  background: var(--background-container);
+  color: var(--text-inverse);
+}
+.size-button:checked + label span {
+  background: var(--background-page);
+  color: var(--text-primary);
+}
+
+.additive-button {
+  display: none;
+}
+.additive-button:checked + label {
+  background: var(--background-container);
+  color: var(--text-inverse);
+}
+.additive-button:checked + label span {
+  background: var(--background-page);
+  color: var(--text-primary);
 }
 
 .menu__body {
